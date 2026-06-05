@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Admission Assistant</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <i class="ti ti-school"></i>
+        <h1>College Admission Assistant</h1>
+    </div>
+
+    <div class="content">
+
+        <div class="card">
+            <h2>Welcome</h2>
+
+            <p>
+                Ask questions about admissions, fees, courses,
+                eligibility, scholarships, documents, and deadlines.
+            </p>
+
+            <p>
+                Click the chat icon in the bottom-right corner
+                to start chatting with the Admission Assistant.
+            </p>
+
+            <button class="open-chat-btn" onclick="openWatsonChat()">
+                Open Chat Assistant
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<!-- IBM Watson Assistant -->
+<script>
+window.watsonAssistantChatOptions = {
+  integrationID: "304fac3d-01ba-40f7-a547-e2f5bf02d367",
+  region: "au-syd",
+  serviceInstanceID: "39a847ec-5f35-4972-b04e-e88c6ba577b5",
+
+  onLoad: async (instance) => {
+    window.watsonInstance = instance;
+    await instance.render();
+  }
+};
+
+setTimeout(function () {
+  const t = document.createElement('script');
+
+  t.src =
+    "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+    (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+    "/WatsonAssistantChatEntry.js";
+
+  document.head.appendChild(t);
+});
+</script>
+
+</body>
+</html>
